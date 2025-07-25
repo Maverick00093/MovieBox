@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+<div class="container mt-4">
+    <h2>Edit Movie</h2>
+    <form action="/admin/edit/<%= movie._id %>" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label class="form-label">Movie Name</label>
+            <input type="text" class="form-control" name="name" value="<%= movie.name %>" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Timing</label>
+            <input type="text" class="form-control" name="timing" value="<%= movie.timing %>" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input type="number" class="form-control" name="price" value="<%= movie.price %>" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Change Poster (optional)</label>
+            <input type="file" class="form-control" name="poster">
+        </div>
+        <button type="submit" class="btn btn-primary">Update Movie</button>
+    </form>
+</div>
+<%- include('../partials/footer') %>

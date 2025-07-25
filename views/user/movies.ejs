@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Now Showing</h1>
+    <div class="row">
+        <% movies.forEach(movie => { %>
+            <div class="col-md-3 mb-4">
+                <div class="card border-0 shadow">
+                    <img src="/images/uploads/<%= movie.poster %>" class="card-img-top" alt="<%= movie.name %>">
+                    <div class="card-body text-center">
+                        <h5 class="card-title"><%= movie.name %></h5>
+                        <p class="text-muted">🕒 <%= movie.timing %></p>
+                        <p class="fw-bold">💸 $<%= movie.price %></p>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+<%- include('../partials/footer') %>

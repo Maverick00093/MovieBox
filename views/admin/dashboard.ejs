@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Admin Dashboard</h1>
+    <a href="/admin/add" class="btn btn-primary mb-3">+ Add New Movie</a>
+    <div class="row">
+        <% movies.forEach(movie => { %>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-lg">
+                    <img src="/images/uploads/<%= movie.poster %>" class="card-img-top" alt="<%= movie.name %>">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= movie.name %></h5>
+                        <p>🕒 <%= movie.timing %><br>💸 $<%= movie.price %></p>
+                        <a href="/admin/edit/<%= movie._id %>" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="/admin/delete/<%= movie._id %>" class="btn btn-danger btn-sm"
+                           onclick="return confirm('Delete this movie?')">Delete</a>
+                        <a href="/admin/view/<%= movie._id %>" class="btn btn-info btn-sm">View</a>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+<%- include('../partials/footer') %>
